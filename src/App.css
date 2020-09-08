@@ -22,13 +22,17 @@
   padding-left: 3px;
   font-weight: 400;
   font-family: inherit;
+  min-width: 150px;
   width:40%;
+  padding-left: 5px;
 }
 .navbar button{
   border:none;
   height: 30px;
-  font-size: 15px;
-  padding:3px 7px;
+  font-size: 17px;
+  padding:3px 10px;
+  background-color: rgba(0, 0, 0, 0.705);
+  color:white;
 }
 .navbar button:hover{
   cursor: pointer;
@@ -38,7 +42,7 @@
 }
 .navbar a{
   color:rgb(209, 6, 6);
-  margin-left: 100px;
+  padding-left: 10px;
 }
 .navbar a:hover{
   color:rgb(251, 35, 35);

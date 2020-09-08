@@ -11,17 +11,17 @@ export default function Movie({ id }) {
     let imageBase;
     useEffect(() => {
         const getMovie = async (id) => {
-            let response = await axios.get(`https://api.themoviedb.org/3/movie/${id}?api_key=498c7c32435a1b0f6674cd42d3ba2c36`)
+            console.log(id)
+            let movieResponse = JSON.parse(window.localStorage.getItem("movie-response"))
+            let response = movieResponse.results.find(m => m.id == id)
             let video = await axios.get(`https://api.themoviedb.org/3/movie/${id}/videos?api_key=498c7c32435a1b0f6674cd42d3ba2c36&append_to_response=videos`)
             // building youtube ID and URL
-            console.log(video.data.results.length)
             if (video.data.results.length > 1) {
                 let youtubeKey = (video.data.results[0].key || "1")
-
                 let url = `https://www.youtube.com/embed/${youtubeKey}`
-                setMovie(response.data)
                 setYoutubeUrl(url)
             }
+            setMovie(response)
         }
         getMovie(id)
     }, [])

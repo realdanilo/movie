@@ -2,6 +2,7 @@
     width: 100vw;
     height:100vh;
     overflow-x: hidden;
+    overflow-y: scroll;
     position: relative; 
 }
 .liked-container .no-movies{
@@ -13,7 +14,7 @@
     display: block;
     margin:0 auto;
     height:400px;
-    width:250px;
+    width:265px;
     position: absolute;
     top:50%;
     left:50%;
@@ -23,8 +24,8 @@
     height:400px;
 }
 .liked-img-container img{
-    height: 400px;
-    width:auto;
+    width:265px;
+    height:400px;
 }
 .liked-container a{
     background-color:black;
@@ -35,5 +36,6 @@
     bottom: 10px;
     left:50%;
     transform: translate(-50%);
+    margin-bottom: 30px;
 
 }

@@ -42,7 +42,7 @@ function App() {
   return (
     <div className="main-container">
       <nav className="navbar">
-        <label htmlFor="search">Search for a movie</label>
+        <label htmlFor="search">Name:</label>
         <input type="text" value={search} name="search" onChange={(e) => setSearch(e.target.value)} />
         <button onClick={() => findMovies(1)}>Search</button>
         <Link to="/liked">&#10084;</Link>
