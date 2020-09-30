@@ -19,21 +19,20 @@
    .image-container {
     padding:50px !important;
     overflow-y: scroll !important;
-    /* background-color:red !important; */
     
    }
    ::-webkit-scrollbar-track{
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.349);
-    background-color: #F5F5F5;
+    background-color: #ffffff;
     }  
 
     ::-webkit-scrollbar{
     width: 6px;
-    background-color: #F5F5F5;
+    background-color: #ffffff;
     }
 
     ::-webkit-scrollbar-thumb{
-    background-color: #121e367a;
+    background-color: #640512;
     }
 }
 .image-container{
@@ -44,7 +43,8 @@
     flex-direction: column;
     overflow-y:hidden;
     row-gap: 20px;
-    background-color: rgba(63, 62, 62, 0.281);
+     background: rgb(144,32,32);
+background: linear-gradient(270deg, rgba(144,32,32,1) 2%, rgba(230,164,167,1) 100%);
     width: 100%;
     margin:0 auto;
     min-height: 250px;
@@ -69,6 +69,10 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    background-color: #e0e1e4;
+    
+    
+
 }
 .movie-information a{
     background-color: black;
@@ -90,4 +94,14 @@
     left: 0;
     width: 100%;
     height: 100%;
+  }
+
+  .movie-main-container h4{
+      font-weight: 200;
+      font-size: 30px;
+  }
+  p{
+      text-align: left;
+      margin-bottom: 10px;
+      line-height: 1.7;
   }

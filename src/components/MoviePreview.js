@@ -1,12 +1,13 @@
 import React from 'react'
 import '../css/MoviePreview.css'
 import { Link } from 'react-router-dom'
+import no_image from '../no_image.png'
 
 export default function MoviePreview({ movie }) {
     const { id, original_language, poster_path, title, vote_average } = movie
     let imageBase;
     if (poster_path == null) {
-        imageBase = "https://www.classify24.com/wp-content/uploads/2017/04/no-image.png"
+        imageBase = no_image
     } else {
         imageBase = `https://image.tmdb.org/t/p/w500/${poster_path}`
     }

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import '../css/Movie.css'
 import { Link } from 'react-router-dom'
+import key from '../keys'
 
 export default function Movie({ id }) {
     const [movie, setMovie] = useState({})
@@ -14,7 +15,7 @@ export default function Movie({ id }) {
             console.log(id)
             let movieResponse = JSON.parse(window.localStorage.getItem("movie-response"))
             let response = movieResponse.results.find(m => m.id == id)
-            let video = await axios.get(`https://api.themoviedb.org/3/movie/${id}/videos?api_key=498c7c32435a1b0f6674cd42d3ba2c36&append_to_response=videos`)
+            let video = await axios.get(`https://api.themoviedb.org/3/movie/${id}/videos?api_key=${key.api_key}&append_to_response=videos`)
             // building youtube ID and URL
             if (video.data.results.length > 1) {
                 let youtubeKey = (video.data.results[0].key || "1")
@@ -63,8 +64,8 @@ export default function Movie({ id }) {
             </div>
             <div className="movie-information">
 
-                <h4>Title: {original_title}</h4>
-                <p>Overview: <br /> {overview}</p>
+                <h4> {original_title}</h4>
+                <p>{overview}</p>
                 <p>{release_date}</p>
                 <p>Rating: {vote_average}</p>
                 <button className="add-to-like" onClick={toggleFav}>{isFavorite ? "Liked" : "Add to like movies"}</button>

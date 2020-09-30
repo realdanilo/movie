@@ -3,8 +3,8 @@ import axios from 'axios'
 import './App.css';
 import MoviePreview from './components/MoviePreview'
 import { Link } from 'react-router-dom';
-
-const baseUrl = "https://api.themoviedb.org/3/search/movie?api_key=498c7c32435a1b0f6674cd42d3ba2c36"
+import key from './keys'
+const baseUrl = `https://api.themoviedb.org/3/search/movie?api_key=${key.api_key}`
 
 function App() {
   const [search, setSearch] = useState(window.localStorage.getItem("movie-search") || "toy story")
