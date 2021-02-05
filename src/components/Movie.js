@@ -14,7 +14,7 @@ export default function Movie({ id }) {
         const getMovie = async (id) => {
             console.log(id)
             let movieResponse = JSON.parse(window.localStorage.getItem("movie-response"))
-            let response = movieResponse.results.find(m => m.id == id)
+            let response = movieResponse.results.find(m => m.id === id)
             let video = await axios.get(`https://api.themoviedb.org/3/movie/${id}/videos?api_key=${key.api_key}&append_to_response=videos`)
             // building youtube ID and URL
             if (video.data.results.length > 1) {
@@ -25,18 +25,18 @@ export default function Movie({ id }) {
             setMovie(response)
         }
         getMovie(id)
-    }, [])
+    }, [id])
     useEffect(() => {
         //set movie if it is liked or not, check
         let freshMovie = JSON.parse(window.localStorage.getItem("fav-movies")) || []
         setFavoriteMovies(freshMovie)
-        freshMovie.map(m => m.id == movie.id ? setIsFavorite(true) : null)
+        freshMovie.map(m => m.id === movie.id ? setIsFavorite(true) : null)
     }, [movie])
 
     const toggleFav = () => {
         let newMovies;
-        if (isFavorite == true) {
-            newMovies = favoriteMovies.filter(m => m.id != movie.id)
+        if (isFavorite === true) {
+            newMovies = favoriteMovies.filter(m => m.id !== movie.id)
             setIsFavorite(false)
         } else {
             newMovies = [{ id: movie.id, image: movie.poster_path }, ...favoriteMovies]
@@ -55,11 +55,11 @@ export default function Movie({ id }) {
         <div className="movie-main-container">
             <div className="image-container">
 
-                <img src={imageBase} alt="movie image" />
+                <img src={imageBase} alt={original_title} />
                 {!youtubeUrl && <p>No trailer video</p>}
                 {youtubeUrl &&
                     <div className="iframe-container">
-                        <iframe width="560" height="315" src={youtubeUrl} frameBorder="0" allowFullScreen={true} ng-show="showvideo"></iframe>
+                        <iframe width="560" title={original_title} height="315" src={youtubeUrl} frameBorder="0" allowFullScreen={true} ng-show="showvideo"></iframe>
                     </div>}
             </div>
             <div className="movie-information">

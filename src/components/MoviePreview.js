@@ -13,7 +13,7 @@ export default function MoviePreview({ movie }) {
     }
     return (
         <div className="movie-preview">
-            <img src={imageBase} />
+            <img src={imageBase} alt={title}/>
             <div className="info-movie">
 
                 <p className="title">{title}</p>

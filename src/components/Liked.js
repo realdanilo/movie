@@ -31,7 +31,7 @@ export default function Liked() {
             {movies && <h3 className="no-movies">Your favorite movies</h3>}
             <div className="liked-movies-carousel">
                 <Slider {...settings}>
-                    {movies && movies.map((m, i) => <div key={i} className="liked-img-container"> <img src={`https://image.tmdb.org/t/p/w500${m.image}`} alt="liked image cover" /></div>)}
+                    {movies && movies.map((m, i) => <div key={i} className="liked-img-container"> <img src={`https://image.tmdb.org/t/p/w500${m.image}`} alt={`liked cover ${i}`} /></div>)}
                 </Slider>
             </div>
             <Link to="/">Go Back</Link>

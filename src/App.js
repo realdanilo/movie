@@ -38,13 +38,20 @@ function App() {
   const pageToggle = (number) => {
     findMovies(number)
   }
+  const handleSubmit = e => {
+    e.preventDefault()
+    // console.log("prevented")
+    findMovies(1)
+  }
 
   return (
     <div className="main-container">
       <nav className="navbar">
-        <label htmlFor="search">Name:</label>
-        <input type="text" value={search} name="search" onChange={(e) => setSearch(e.target.value)} />
-        <button onClick={() => findMovies(1)}>Search</button>
+        <form onSubmit={(e)=> handleSubmit(e)}>
+          <label htmlFor="search">Name:</label>
+          <input type="text" value={search} name="search" onChange={(e) => setSearch(e.target.value)} />
+          <button type="submit">Search</button>
+        </form>
         <Link to="/liked">&#10084;</Link>
       </nav>
       {!data && <h4 className="na-response">Nothing to show</h4>}
@@ -58,7 +65,7 @@ function App() {
         <div className="pagination">
 
           {page > 1 && <button onClick={() => pageToggle(page - 1)}>Previous</button>}
-          {((totalPages != page) > 0) && <button onClick={() => pageToggle(page + 1)}>Next</button>}
+          {((totalPages !== page) > 0) && <button onClick={() => pageToggle(page + 1)}>Next</button>}
         </div>
       </div>
     </div>
